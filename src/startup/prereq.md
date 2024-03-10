@@ -83,6 +83,11 @@ system processor.  Do not worry, this is an automated process.
 > If you don't intend to program your user code using the Arduino
 > environment, you can install only the Arduino CLI instead of the
 > full IDE.  This will save disk space.
+>
+> You can find the Arduino CLI installers on [this
+> page](https://arduino.github.io/arduino-cli/latest/installation/#latest-release).
+>
+> If installing the Arduino CLI, you don't need to complete this section!
 
 If using Microsoft Windows, the Gizmo tool can perform all of the
 Arduino setup for you.  In a PowerShell prompt, run the following:
