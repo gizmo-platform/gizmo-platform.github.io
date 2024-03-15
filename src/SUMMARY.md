@@ -9,5 +9,6 @@
   - [Firmware Installation](./startup/firmware.md)
 - [Programming](./code/intro.md)
   - [Languages](./code/lang.md)
+  - [Adding a Language](./code/add_new.md)
 - [Getting Help](./appendix/help.md)
 - [Glossary](./appendix/glossary.md)
