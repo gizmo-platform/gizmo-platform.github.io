@@ -7,5 +7,7 @@
 - [Get Started](./startup/index.md)
   - [Prerequisites](./startup/prereq.md)
   - [Firmware Installation](./startup/firmware.md)
+- [Programming](./code/intro.md)
+  - [Languages](./code/lang.md)
 - [Getting Help](./appendix/help.md)
 - [Glossary](./appendix/glossary.md)
