@@ -6,3 +6,7 @@ src = "src"
 title = "Gizmo Guide"
 
 [preprocessor.callouts]
+
+[preprocessor.d2-go]
+layout = "elk"
+theme_id = 0
