@@ -28,6 +28,12 @@ jobs:
           crate: mdbook-callouts
           version: "v0.2.1"
 
+      - name: Setup Go
+        uses: actions/setup-go@v5
+
+      - name: Install mdbook d2 preprocessor
+        run: go install github.com/Vaelatern/mdbook-d2-go@latest
+
       - name: Build Book
         run: mdbook build
 
