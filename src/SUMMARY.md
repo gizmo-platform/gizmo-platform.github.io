@@ -15,5 +15,6 @@
     - [Setup](./code/arduino/setup.md)
     - [Hello World](./code/arduino/hello.md)
     - [Spin a Wheel](./code/arduino/servo.md)
+    - [Gizmo Library](./code/arduino/gizmo.md)
 - [Getting Help](./appendix/help.md)
 - [Glossary](./appendix/glossary.md)
