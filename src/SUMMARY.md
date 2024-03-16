@@ -18,5 +18,6 @@
     - [Hello World](./code/arduino/hello.md)
     - [Spin a Wheel](./code/arduino/servo.md)
     - [Gizmo Library](./code/arduino/gizmo.md)
+    - [Drive a Robot](./code/arduino/robot.md)
 - [Getting Help](./appendix/help.md)
 - [Glossary](./appendix/glossary.md)
