@@ -11,5 +11,8 @@
 - [Programming](./code/intro.md)
   - [Languages](./code/lang.md)
   - [Adding a Language](./code/add_new.md)
+  - [Arduino](./code/arduino/index.md)
+    - [Setup](./code/arduino/setup.md)
+    - [Hello World](./code/arduino/hello.md)
 - [Getting Help](./appendix/help.md)
 - [Glossary](./appendix/glossary.md)
