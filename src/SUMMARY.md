@@ -8,6 +8,7 @@
 - [Get Started](./startup/index.md)
   - [Prerequisites](./startup/prereq.md)
   - [Firmware Installation](./startup/firmware.md)
+  - [Driver Station](./startup/ds.md)
 - [Field Services](./field/index.md)
   - [Practice Mode](./field/practice.md)
 - [Programming](./code/intro.md)
