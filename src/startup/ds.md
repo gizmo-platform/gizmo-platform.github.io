@@ -109,8 +109,8 @@ You may now close Etcher and remove the micro SD card.
 Once you have successfully written the driver station image to the
 micro SD card, it must be configured.  The driver station consumes the
 same configuration file as the Gizmo System Software.  Locate the
-`gsscfg.json` file that was generated as part of the firmware
-configuration process, and copy it to the micro SD card.
+`gsscfg.json` file that was generated as part of the
+[configuration](config.md) process, and copy it to the micro SD card.
 
 > [!NOTE]
 >
@@ -125,5 +125,8 @@ configuration process, and copy it to the micro SD card.
 > to the drive that contains `bootcode.bin`.
 
 Once you copy the file, eject/safely remove the drive and install it
-in the micro SD card slot on the driver's station.
-
+in the micro SD card slot on the driver's station.  The card should be
+inserted with the contacts facing downwards, aligned against the flat
+edge of the card.  Should you need to remove it, you may find tweezers
+useful; alternatively with the lid removed from the driver's station,
+it is possible to use a paperclip to push the card back out.
