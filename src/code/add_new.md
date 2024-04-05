@@ -20,11 +20,11 @@ that allows your program to talk to the System Processor.  For
 reference, the entire library that supports the Arduino environment is
 less than 200 lines of code.
 
-Refresh your understanding of the
-[architecture](/learn/architecture.md) of the Gizmo.  The library you
-are going to write will need to communicate using the I2C protocol to
-the System Processor and then decode the responses into a format that
-will be useful for your program.
+Refresh your understanding of the [architecture](/learn/arch.md) of
+the Gizmo.  The library you are going to write will need to
+communicate using the I2C protocol to the System Processor and then
+decode the responses into a format that will be useful for your
+program.
 
 You can check the exact formats of data by reviewing the [firmware
 source code](https://github.com/gizmo-platform/firmware/).  You'll
