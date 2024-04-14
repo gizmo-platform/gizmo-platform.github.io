@@ -32,22 +32,13 @@ to identify itself to a field, and to seperate metrics out when
 multiple Gizmo devices are operating in concert such as a scrimmage or
 a competition.  Your number should be an integer value below 9999.
 
-### `? Use the driver's console`
+### `? Use the driver's station`
 
-The driver's console is a dedicated hardware device which removes the
+The driver's station is a dedicated hardware device which removes the
 requirement to use a seperate computer to interact with the Gizmo.
-When using the driver's console, almost all setup is automatic, so all
+When using the driver's station, almost all setup is automatic, so all
 other questions will be skipped.
 
-### `? Use Avahi (mDNS)`
-
-Avahi, also known as Bonjour, ZeroConf, and Multicast DNS is a
-technology that allows you to use DNS names to refer to components of
-a network without needing a DNS server.  Selecting yes to this prompt
-will suppress questions about IP addressing in later prompts.
-
-Note that Avahi is usually disabled on large scale networks, so this
-may not work correctly when using a non-dedicated network controller.
 
 ### `? Use external network controller`
 
@@ -101,12 +92,11 @@ which will be used to drive.
 
 ### `? Address of the field server`
 
-This question will only be shown if you selected not to use Avahi
-(mDNS).  When not using mDNS, you will need to provide an IP address
-that the Gizmo can communicate with for control information.  It is
-recommended that this be a static address, but this is not strictly
-required (you will, however, have to update your Gizmo if this address
-is changed which is why Avahi is recommended).
+It is recommended that this be a static address, but this is not
+strictly required (you will, however, have to update your Gizmo if
+this address is changed).  If you network supports
+Avahi/mDNS/ZeroConf, you may enter `gizmo<team>.local` here and the
+Gizmo will find your controller using mDNS.
 
 By default, the address of the machine you are running the `gizmo`
 tool on will be pre-populated for you.  If you wish to use another
