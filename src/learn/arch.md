@@ -126,11 +126,11 @@ mqttpusher <- mqttserver : Queries location information
 mqttpusher -> gamepad: Polls gamepad state
 ```
 
-The primary adminstrative interface for the `gizmo field serve` is an
-HTTP API that consumes JSON formatted data.  This API can update the
-data stored in the Team Location Mapper which maintains a mapping of
-team number to field location.  This mapping is published via routine
-MQTT messages as well as made available via the HTTP API (read-only).
+The primary adminstrative interface for the `gizmo fms run` is an HTTP
+API that consumes JSON formatted data.  This API can update the data
+stored in the Team Location Mapper which maintains a mapping of team
+number to field location.  This mapping is published via routine MQTT
+messages as well as made available via the HTTP API (read-only).
 
 MQTT is a publish/subscribe bus mechanism that allows various
 consumers to express interest in topics of information such as
@@ -139,13 +139,13 @@ publishers to simultaneously notify all consumers of new information.
 MQTT is a network-transparent system which means that each of the
 components described above can even be run on different computers.
 
-Gizmo boards connect to the `gizmo field serve` process using MQTT.
-All messages that get passed over MQTT are JSON formatted.
+Gizmo boards connect to the `gizmo fms run` process using MQTT.  All
+messages that get passed over MQTT are JSON formatted.
 
 The gamepad components abstract over the various differences in
 operating system APIs between macOS, Microsoft Windows, and the Linux
 kernel.  This allows the `gizmo` tool to be cross platform and read
-the gamepad API in a neutral way on every platform.
+the gamepad API in a neutral way on a selection of platforms.
 
 Gizmo boards pass statistics information back to the server via MQTT
 which is ingested by the metrics module and made available over HTTP
