@@ -17,6 +17,7 @@
   - [Configuration](./field/config.md)
   - [Hardware Preparation](./field/hw-prep.md)
   - [Bootstrap Network](./field/net-bootstrap.md)
+  - [Operating the FMS](./field/operating.md)
 - [Programming](./code/intro.md)
   - [Languages](./code/lang.md)
   - [Adding a Language](./code/add_new.md)
