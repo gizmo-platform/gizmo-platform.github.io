@@ -17,7 +17,7 @@ the Driver Station.
 In a terminal window, execute the following command:
 
 ```
-$ .\gizmo.exe firmware configure
+$ .\gizmo.exe configure
 ```
 
 You will be asked a series of questions.  Each question is described
