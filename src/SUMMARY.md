@@ -14,6 +14,7 @@
   - [Driver Station](./startup/ds.md)
   - [Firmware Installation](./startup/firmware.md)
 - [Field Management System](./field/index.md)
+  - [Workstation Setup](./field/setup.md)
   - [Configuration](./field/config.md)
   - [Hardware Preparation](./field/hw-prep.md)
   - [Bootstrap Network](./field/net-bootstrap.md)
