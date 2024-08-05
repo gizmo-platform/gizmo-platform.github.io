@@ -23,8 +23,8 @@ Box.  Once you have done this, launch the `flash-device` utility.  You
 will see the following message:
 
 ```
-$ gizmo fms flash-device
-Welcome to the field-flash utility.
+$ gizmo fms setup flash-device
+Welcome to the Device Flash utility.
 
 This process will guide you through the process of installing the most
 recently confirmed working firmware on your field device.

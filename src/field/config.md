@@ -13,8 +13,8 @@ Number,Name,Hub,Table
 
 The headers should be as shown above.  The FMS will parse this file to
 construct a record for each team.  To perform initial configuration,
-run the configuration wizard by invoking `gizmo fms wizard`.  You will
-be asked a series of questions.
+run the configuration wizard by invoking `gizmo fms setup wizard`.
+You will be asked a series of questions.
 
 ### `? Specify teams CSV file`
 

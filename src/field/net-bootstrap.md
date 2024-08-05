@@ -22,7 +22,7 @@ it to finish initialization.  Do not connect any Field Boxes yet.
 Begin the bootstrap procedure with the following command:
 
 ```
-$ gizmo fms bootstrap-net
+$ gizmo fms net bootstrap
 ```
 
 You will be presented with a message summarizing most of the above
@@ -93,11 +93,10 @@ handful of items that are set to different values during
 bootstrapping:
 
 ```
-$ gizmo fms reconcile-net
+$ gizmo fms net reconcile
 ```
 
 The command will run for approximately 2 minutes and validate your
 entire network configuration.  If at any time you think your network
-configuration may have become corrupt, you can re-run the
-`reconcile-net` command to validate the entire configuration
-end-to-end.
+configuration may have become corrupt, you can re-run the `reconcile`
+command to validate the entire configuration end-to-end.

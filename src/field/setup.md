@@ -86,8 +86,8 @@ With the terminal open, execute the following commands:
 
 ```
 $ sudo tzupdate
-$ sudo gizmo fms fetch-tools
-$ sudo gizmo fms fetch-packages
+$ sudo gizmo fms setup fetch-tools
+$ sudo gizmo fms setup fetch-packages
 ```
 
 The first command will set the timezone based on your location, the
