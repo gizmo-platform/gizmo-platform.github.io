@@ -20,6 +20,7 @@
   - [Bootstrap Network](./field/net-bootstrap.md)
   - [Connecting Gizmos](./field/connect-gizmo.md)
   - [Operating the FMS](./field/operating.md)
+  - [Metrics](./field/metrics.md)
 - [Programming](./code/intro.md)
   - [Languages](./code/lang.md)
   - [Adding a Language](./code/add_new.md)
