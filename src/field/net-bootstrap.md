@@ -38,7 +38,7 @@ Connect the scoring table box's second port (the FMS port) directly to
 the FMS workstation (this computer).  Connect no other cables or
 devices.
 
-Power on the scoring table box and wait approximately 30 seconds for
+Power on the scoring table box and wait approximately 2 minutes for
 it to boot.  Once the device has booted (pattern of lights has
 stabilized), confirm this dialog and the scoring table box will be
 programmed.  You will receive more instructions on when to connect
@@ -58,7 +58,7 @@ Connect your field boxes to ports 3-5 on the scoring box at this time.
 If you are not using a PoE enabled scoring box, connect power to your
 field boxes at this time.
 
-Once connected, wait approximately 30 seconds for your field boxes to
+Once connected, wait approximately 2 minutes for your field boxes to
 finish booting (pattern of lights has stabilized) and then confirm
 this dialog.  You will see some error messages printed as the initial
 configuration is programmed, this is normal.
