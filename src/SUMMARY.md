@@ -36,5 +36,8 @@
     - [Gizmo Library](./code/circuit_python/gizmo.md)
     - [Spin a Wheel](./code/circuit_python/motor.md)
     - [Drive a Robot](./code/circuit_python/robot.md)
+- [Troubleshooting](./trouble/index.md)
+  - [Driver Station](./trouble/ds.md)
+  - [FMS](./trouble/fms.md)
 - [Getting Help](./appendix/help.md)
 - [Glossary](./appendix/glossary.md)
