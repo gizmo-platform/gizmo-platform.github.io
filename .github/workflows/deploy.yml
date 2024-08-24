@@ -4,14 +4,17 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch:
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     permissions:
       contents: read   # To read the source code
-      pages: write     # To push to a GitHub Pages site
-      id-token: write  # To update the deployment status
     steps:
       - uses: actions/checkout@v4
         with:
@@ -44,7 +47,17 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           path: 'book'
-
+          retention-days: 90
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write     # To push to a GitHub Pages site
+      id-token: write  # To update the deployment status
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
