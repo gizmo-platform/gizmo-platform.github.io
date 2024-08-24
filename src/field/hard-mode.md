@@ -165,7 +165,7 @@ $ sudo usermod -c "FMS Admin" -G wheel,storage,dialout,docker admin
 > this entire process using a script is more reliable.
 >
 > You can view the exact steps that the CI system performs by
-> examining the `.release/build-fms.sh` script in
+> examining the `.release/build.sh` script in
 > [gizmo-platform/gizmo](https://github.com/gizmo-platform/gizmo).
 > The script includes a handful of extra steps that have to do with
 > running an arm64 software stack on top of an amd64 installation
