@@ -58,9 +58,11 @@ detect the Gizmo in mass-storage (thumb drive) mode, and it will be
 attached as a removable drive.
 
 Obtain the latest firmware release from
-[here](https://github.com/gizmo-platform/firmware/releases/).  You
-need the `uf2` file from the release artifacts located at the bottom
-of the card.
+[here](https://github.com/gizmo-platform/firmware/releases/). Your
+board has a specific version number, printed at the top right of the
+case. For most users, this is v1.00. You need the `uf2` file referencing
+that version number, and can find it in the "Assets" section located
+at the bottom of the card.
 
 Simply drag-and-drop the `uf2` file from above onto the drive.  After
 a few seconds, the drive will disconnect and the light on the System
