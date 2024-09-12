@@ -82,6 +82,19 @@ from:
 
 > System > TerminalEmulator > Xfce Terminal
 
+> [!NOTE]
+>
+> You are also strongly encouraged to change the FMS password with the
+> following command:
+>
+> ```
+> $ passwd
+> ```
+>
+> This will prompt you for your current, new, and confirmation of new
+> passowrds.  The default password is `gizmo`.
+
+
 With the terminal open, execute the following commands:
 
 ```
@@ -93,17 +106,6 @@ $ sudo gizmo fms setup fetch-packages
 The first command will set the timezone based on your location, the
 second two retrieve 3rd party firmware that is required for the FMS,
 but that we are not permitted to bundle with the system images.
-
-You are also strongly encouraged to change the FMS password with the
-following command:
-
-```
-$ passwd
-```
-
-This will prompt you for your current, new, and confirmation of new
-passowrds.
-
 
 ## Updating the Gizmo Binary
 
