@@ -40,5 +40,6 @@
 - [Troubleshooting](./trouble/index.md)
   - [Driver Station](./trouble/ds.md)
   - [FMS](./trouble/fms.md)
+  - [Gizmo](./trouble/gizmo.md)
 - [Getting Help](./appendix/help.md)
 - [Glossary](./appendix/glossary.md)
