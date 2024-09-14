@@ -109,6 +109,11 @@ but that we are not permitted to bundle with the system images.
 
 ## Updating the Gizmo Binary
 
+> [!NOTE]
+>
+> You only need to update when a new version is released.  If you just
+> installed, you're already on the latest version.
+
 From time to time the Gizmo application receives updates.  To update
 the binary on the FMS workstation, download the
 `gizmo_Linux_arm64.tar.gz` file from the most recent [GitHub
