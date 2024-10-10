@@ -39,8 +39,8 @@ platforms, and guides you through the process.
 > not have administrative permissions to install new programs.
 
 For a complete walkthrough of what Balena Etcher looks like, review
-the image writing process for the [driver's
-station](../startup/ds.md#software-installation).
+the image writing process from the appendix ([this
+page](/appendix/imaging.md)).
 
 ## Initial Setup Tasks
 

@@ -36,97 +36,64 @@ writing a micro SD card for this step, using adapters if necessary.
 
 Obtain the latest system image from the [GitHub releases
 page](https://github.com/gizmo-platform/gizmo/releases/).  For the
-driver's station, use the `driver-station.zip` file.  After unzipping
-the file, you'll have a file called `driver-station.img`.
+driver's station, use the `ds-ramdisk.zip` file.  The following
+instructions will be shown using Microsoft Windows, but similar
+instructions may be followed on other operating systems.
 
-To write the image to the SD card, you have a few choices.  If you're
-on a mac or a Linux machine, you can use `dd`.  On Windows you can use
-[Win32DiskImager](https://win32diskimager.org/).  If you've never
-written disk images before, the Gizmo team recommends you use [Balena
-Etcher](https://etcher.balena.io/) which is available for all
-platforms, and guides you through the process.
+Begin by inserting the Micro SD card into a reader and plug it into
+your PC.  Open Windows Explorer, select 'This Computer' and right
+click on the inserted (blank) drive.  In the context menu, choose the
+"format" option.
 
-> [!TIP]
->
-> Balena Etcher Portable edition can be used without needing to
-> install.  This can be convenient to not clutter your machine with
-> extraneous programs, or to write files from a machine where you do
-> not have administrative permissions to install new programs.
+![Select Drive](/img/ds/explorer_blank_disk.png)
 
-Writing the Gizmo driver station image with Balena Etcher looks like
-this:
+In the resulting format window, leave all options at the default, but
+fill in the Volume Label field.  This field is case sensitive and
+should take the format of `GIZMO<NUMBER>` where `<NUMBER>` is the
+number of the team that should be associated with this driver's
+station.  Do not left-pad the number field (#452 should be 3 digits,
+not having a leading zero).
 
-When you open the main application screen, it will look like this:
+![Format Disk](/img/ds/windows_format.png)
 
-![Balena Etcher First Open](/img/balena_opened.png)
+The format process will take several seconds, and once it completes
+the disk will re-attach as a named volume starting with `GIZMO`.
+Proceed by locating the `ds-ramdisk.zip` file you downloaded earlier
+and right-click it.  In the context menu, select 'Extract All'.
 
-Either download and extract the driver station file as mentioned
-above, or paste the URL directly into the box on the "Use Image URL"
-screen:
+![Extract Context Menu](/img/ds/explorer_context_extract.png)
 
-![Balena Etcher Use URL](/img/balena_urlconf.png)
+In the resulting file extraction wizard window, select "Browse..."
+which will open a file browser window.  In this window, select the
+`GIZMO` disk from the left sidebar.  Select the drive itself.
 
-Click the "Select target" button and connect your micro SD card.  The
-disk will appear as a target that you can use.
+![Extraction Target Select](/img/ds/extract_select_drive.png)
 
-![Balena Etcher Target Selection](/img/balena_target.png)
+Once you have made your selection, the extraction wizard will be ready
+to proceed.  Configured, it should look like this:
 
-> [!WARNING]
->
-> Balena will automatically hide any volumes that it detects the
-> system may be booted from, so generally you can't hurt your computer
-> with this process.  Be extremely careful though to select the right
-> disk if you show hidden devices.  A good way to make sure you've got
-> the right disk is to confirm the size of the device, which should
-> match closely to the size of your micro SD card.  The exact size may
-> differ slightly due to the way in which device manufacturers market
-> capacity.
+![Extraction Ready to Proceed](/img/ds/extract_ready.png)
 
-Once configured, the Etcher window will look similar to this:
+The extraction wizard will show a top level disk, in this case, the
+'D' drive.  Click 'Next' and a progress window will appear:
 
-![Balena Etcher Ready to Go](/img/balena_ready.png)
+![Extraction Progress](/img/ds/extract_in_progress.png)
 
-The flashing process will take several minutes.  On average with a
-modern computer, the Gizmo team observes this process taking about 3
-minutes.
+Once the extraction completes, the Gizmo disk will re-open and now
+contain files:
 
-> [!NOTE]
->
-> You may be prompted to authorize the command prompt prior to the
-> flash process commencing, this is a normal prompt as Balena Etcher
-> needs to access low-level system utilities to write the data to the
-> micro SD card.
+![Extraction Complete](/img/ds/extract_complete.png)
 
-Once complete, the Etcher window will look like this:
-
-![Balena Etcher Finished](/img/balena_finished.png)
-
-You may now close Etcher and remove the micro SD card.
-
-
-## Software Configuration
-
-Once you have successfully written the driver station image to the
-micro SD card, it must be configured.  The driver station consumes the
-same configuration file as the Gizmo System Software.  Locate the
-`gsscfg.json` file that was generated as part of the
-[configuration](config.md) process, and copy it to the micro SD card.
+Eject the disk and install it into the labeled slot on the case
+labeled "TF Card".  The card should be installed with the metal
+contacts facing the bottom of the case, and take care to insert the
+card into the reader.  Its easy to miss the reader and just push the
+card into the case if you're not careful.
 
 > [!NOTE]
 >
-> On some computers, you may need to disconnect and reconnect the
-> micro SD card for it to show up as a removable disk after using
-> Etcher.
->
-> Only one volume should attach in most cases, but in the event your
-> computer has additional device drivers typically only found on
-> developer workstations, you may see two drives when you plug in the
-> micro SD card.  In the event you see two drives, copy `gsscfg.json`
-> to the drive that contains `bootcode.bin`.
-
-Once you copy the file, eject/safely remove the drive and install it
-in the micro SD card slot on the driver's station.  The card should be
-inserted with the contacts facing downwards, aligned against the flat
-edge of the card.  Should you need to remove it, you may find tweezers
-useful; alternatively with the lid removed from the driver's station,
-it is possible to use a paperclip to push the card back out.
+> If you've been using the Gizmo for a while, you may be wondering
+> where the `gsscfg.json` file is.  This file has been obsoleted.  You
+> can still use one if you'd like, but the team number is now read
+> from the volume label, and other values are derived from the driver
+> station's hardware IDs.
