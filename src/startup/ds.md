@@ -84,11 +84,13 @@ contain files:
 
 ![Extraction Complete](/img/ds/extract_complete.png)
 
-Eject the disk and install it into the labeled slot on the case
-labeled "TF Card".  The card should be installed with the metal
-contacts facing the bottom of the case, and take care to insert the
-card into the reader.  Its easy to miss the reader and just push the
-card into the case if you're not careful.
+Eject the disk.  Wait for either Windows to remove the drive and say
+it is safe to disconnect, or 30 seconds after clicking eject. Install
+the card into the labeled slot on the case labeled "TF Card".  The
+card should be installed with the metal contacts facing the bottom of
+the case, and take care to insert the card into the reader.  Its easy
+to miss the reader and just push the card into the case if you're not
+careful.
 
 > [!NOTE]
 >
