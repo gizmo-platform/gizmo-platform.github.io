@@ -44,6 +44,7 @@
     - [Spin a Wheel](./code/microblocks/motor.md)
     - [Drive a Robot](./code/microblocks/robot.md)
 - [Troubleshooting](./trouble/index.md)
+  - [Start Here](./trouble/flowchart.md)
   - [Driver Station](./trouble/ds.md)
   - [FMS](./trouble/fms.md)
   - [Gizmo](./trouble/gizmo.md)
