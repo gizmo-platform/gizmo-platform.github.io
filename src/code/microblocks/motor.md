@@ -24,13 +24,6 @@ The servo block accepts positions from -90 to 90.
 
 ![Set Servo To Position block](/img/microblocks/servo_block.png)
 
-> [!WARNING]
->
-> MicroBlocks version 1.2.95 changed the underlying PWM code. The motor
-> block speed range is -50 to 50 in versions affected by this change. The
-> Gizmo block library will be updated soon to correct the range back to
-> -100 to 100.
-
 ## Sweeping Motor Speeds
 
 This example program runs a motor on Gizmo's motor port 1 through the full
