@@ -19,6 +19,7 @@
   - [Hardware Preparation](./field/hw-prep.md)
   - [Bootstrap Network](./field/net-bootstrap.md)
   - [Connecting Gizmos](./field/connect-gizmo.md)
+  - [Physical Setup](./field/physical-setup.md)
   - [Operating the FMS](./field/operating.md)
   - [Metrics](./field/metrics.md)
   - [Hard Mode](./field/hard-mode.md)
