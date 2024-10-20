@@ -55,6 +55,23 @@ followed by a MAC address.  Input the sequence of 12 hexadecimal
 characters exactly as printed, including the colons.  This field is
 case-insensitive.
 
+### `? Select the channel to pin this field to.  You can change this later.`
+
+> [!NOTE]
+>
+> This question will be repeated for each field that you've told the
+> system you have.
+
+Select what wireless channel this particular field will be bound to.
+Your choices are 1, 6, 11, or Auto.  Auto will automatically scan for
+and select a lightly used channel.  If you have other wireless systems
+that you cannot disable, it is wise to avoid the channels in use by
+those systems.
+
+You can change this later by running `gizmo fms setup change-channels`
+which will re-prompt for each field the channel you want it on.  After
+making your selection, run `gizmo fms net reconcile`.
+
 ### `? Read-only user password (username: gizmo-ro)`
 
 In the unlikely event you need to log into the interface on the field
