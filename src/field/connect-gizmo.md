@@ -39,3 +39,9 @@ A list of all teams that the FMS is aware of will be presented.  You
 can either arrow through this list or type the first few characters of
 the team name you wish to select.  Pressing enter will confirm your
 selection and upload the desired configuration to the connected Gizmo.
+
+> [!TIP]
+>
+> You can call the config-server with `--oneshot` to have it exit
+> after each one.  This may be more intuitive to some users and is
+> also easier to avoid accidentally double flashing a Gizmo.
