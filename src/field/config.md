@@ -113,8 +113,3 @@ running the wizard from the FMS Workstation.  Do not change this value
 unless you are using another machine to perform this configuration and
 will subsequently transfer files to the Workstation (very advanced use
 case).
-
-### `? Configure really advanced network features`
-
-Answer no to this question unless you have received specific
-instructions otherwise from a member of the Gizmo development team.
