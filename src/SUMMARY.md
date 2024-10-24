@@ -50,5 +50,6 @@
   - [Gizmo](./trouble/gizmo.md)
 - [Appendix](./appendix/index.md)
   - [Writing Images](./appendix/imaging.md)
+  - [Repartitioning Disks](./appendix/full_partition.md)
   - [Getting Help](./appendix/help.md)
   - [Glossary](./appendix/glossary.md)

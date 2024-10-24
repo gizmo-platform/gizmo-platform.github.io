@@ -34,6 +34,16 @@ Once physical assembly is complete, you must install the software
 image that runs the driver's station.  Ensure you have a means of
 writing a micro SD card for this step, using adapters if necessary.
 
+> [!NOTE]
+>
+> If this procedure doesn't appear to work for you, you may need to
+> [repartition your micro SD card](/appendix/full_partition.md).  This
+> can happen on some newer Windows 10 and Windows 11 machines where
+> inappropriate defaults are selected.
+>
+> If you have come here from the repartitioning guide, skip directly
+> to the step below where you extract the `ds-ramdisk.zip` file.
+
 Obtain the latest system image from the [GitHub releases
 page](https://github.com/gizmo-platform/gizmo/releases/).  For the
 driver's station, use the `ds-ramdisk.zip` file.  The following
