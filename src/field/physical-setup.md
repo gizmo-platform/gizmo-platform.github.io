@@ -18,6 +18,16 @@ out of the way of errant robots.
 > mount it, select a tape that is not released with heat or your radio
 > will detatch itself from the mounting point.
 
+> [!DANGER] Pitfall!
+>
+> When mounting the Field Radio ensure sufficient seperation between
+> the radio and the ground.  Many commercial buildings use
+> rebar-reinforced concrete floors, which can behave as a [ground
+> plane](https://en.wikipedia.org/wiki/Ground_plane).  Exactly why
+> this is a problem is _far beyond_ the scope of this manual, but the
+> critical dimension is 50cm or approximately 20" from the floor to
+> the bottom of the Field Radio case.
+
 On the field boxes, port 1 should be connected back to a field port on
 the scoring box.  Ports 2-5 go to the colored field positions in the
 following order:
