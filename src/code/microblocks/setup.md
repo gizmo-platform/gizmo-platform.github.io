@@ -7,7 +7,7 @@ MicroBlocks to program it.
 ## Installing the MicroBlocks Firmware
 
 1. Download the firmware .uf2 file from the MicroBlocks downloads page:
-[https://microblocks.fun/downloads/pilot/vm/vm_gizmo_mechatronics.uf2](https://microblocks.fun/downloads/pilot/vm/vm_gizmo_mechatronics.uf2)
+[https://microblocks.fun/downloads/latest/vm/vm_gizmo_mechatronics.uf2](https://microblocks.fun/downloads/latest/vm/vm_gizmo_mechatronics.uf2)
 1. Hold your Gizmo's student processor BOOTSEL ("Boot Select") button down
 while connecting the USB programming cable to your computer. Once you've
 connected the cable, release the BOOTSEL button. You should now see an
@@ -18,7 +18,7 @@ student processor will automatically reset when the installation is done.
 ## Connecting the MicroBlocks Editor to Your Gizmo
 
 The MicroBlocks editor can be accessed online at
-[https://microblocks.fun/run-pilot/](https://microblocks.fun/run-pilot/).
+[https://microblocks.fun/run/](https://microblocks.fun/run/).
 This editor will allow you to create programs without a Gizmo connected.
 You can save and load programs to and from your computer.
 
