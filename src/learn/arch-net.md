@@ -24,7 +24,7 @@ up, field boxes, the FMS server, and scoring boxes receive IPs in the
 `100.64.0.0/24` subnet.  While this subnet is not intended for local
 assignment, instead being part of the CG-NAT allocation
 ([RFC6598](https://datatracker.ietf.org/doc/html/rfc6598)).  We select
-this range and the adjacent subnet for bootstrapping (`100.64.0.1/24`)
+this range and the adjacent subnet for bootstrapping (`100.64.1.0/24`)
 due to the extremely small chance in a collission between this range
 and the range in a host venue, which would render normal NAT services
 impossible to deliver.  There is no risk to sitting this range behind
@@ -49,12 +49,6 @@ technically not necessary, this normalization makes addresses easier
 to parse and reason about.  Lets look at another example.  Team number
 1729 is already 4 digits in length, so we partition the number and
 allocate `10.17.29.0/24` for this team's use.
-
-These networks are managed by the FMS's Scoring Box which resides at
-the first address in each block and provides DNS as well as DHCP
-services.  In the case that the FMS is unavailable, the Driver's
-Station runs a reduced functionality DHCP server that can assign
-addresses in its local subnet only.
 
 ## Wireless Networks
 
@@ -101,3 +95,18 @@ assigned to, and the relevant networks are made available on those
 radios and access ports.  This sophisticated automation is managed by
 the FMS workstation, and is completely passive once changes are
 synced.
+
+> [!NOTE] Network Address Management
+>
+> All team addresses are statically assigned and are at fixed
+> locations.  The Driver's Station will always be at `.2`, and the
+> Gizmo will always be at `.3`.
+>
+> Why do we do this?  Most network you interact with are configured
+> dynamically using DHCP (literally 'Dynamic Host Configuration
+> Protocol').  DHCP is great for networks that you're willing to wait
+> a few seconds for connectivity.  In the case of a robotics platform,
+> this delay is unacceptable and we pre-calculate all addresses to
+> allow instantaneous assignment on boot.  This has the practical
+> upshot of reducing connection times from ~10 seconds down to about
+> ~4 seconds in the worst case, and often much faster than that.
