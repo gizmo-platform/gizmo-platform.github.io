@@ -70,9 +70,18 @@ DNS server, NAT services, and a host of other advanced network
 components to support interoperability between the Gizmo network and
 other networks which may be present at events.
 
+> [!NOTE]
+>
+> If you are running a very large event, it is possible to make use of
+> "Jumbo Mode" where your Scoring Box is replaced with a Mikrotik
+> RB5009-PoE.  This can be extended even further by using programmable
+> trunk switches to achieve more fields than any venue in the US can
+> hold.  This is certainly an advanced use case, and if you think you
+> need this, reach out to the Gizmo team for advice.
+
 ### Field Boxes
 
-Field Boxes are Mikrotik hAP AC Lite devices that are associated with
+Field Boxes are Mikrotik hAP ac3 devices that are associated with
 fields.  Each field has exactly one field box, which means most users
 will only have one in total.  The Field Box contains the dual-chain
 radios, as well as provides 4 Ethernet ports for driver's stations to
