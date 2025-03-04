@@ -28,19 +28,6 @@ the side effect of shutting down the local radio in the driver's
 station.  This is important to reduce interference by having as few
 transmitting radios powered on as possible.
 
-## `dhcpcd`
-
-The network on the driver's station is relatively simple and operates
-in one of 2 modes.  Either the driver's station has been assigned a
-dynamic address by the FMS, or it is not connected to an FMS and needs
-to configure itself locally.  This local configuration is implemented
-using a fallback profile, so if `dhcpcd` starts up and times out
-without a response from a remote DHCP server, it will assign a team
-specific address as described in the [Network Design](arch-net.md).
-The presence of this fallback address is detected, which is what
-allows the driver's station to determine if its connected to an FMS or
-not.
-
 ## `gizmo-ds`
 
 This is the main driver's station process.  It is the result of the

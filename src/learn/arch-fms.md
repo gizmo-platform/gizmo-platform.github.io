@@ -42,22 +42,20 @@ fields.
 
 The FMS is made up of 3 key components.  Each of these components has
 a specific function to fill and works in concert with the others.
-These components are referred to as the FSM Workstation, the Scoring
+These components are referred to as the FMS Workstation, the Scoring
 Box, and Field Boxes.
 
 ### FMS Workstation
 
 The FMS Workstation is a Linux computer that actually runs all the
-software.  This software includes an MQTT Broker which forms the
-center point of the various data streams in the Gizmo ecosystem, a
-suite of utilities that perform configuration and management
-utilities, and an observability stack that provides centralized
-management of logs and metrics.
+software.  This software includes a suite of utilities that perform
+configuration and management utilities, and an observability stack
+that provides centralized management of logs and metrics.
 
 The FMS Workstation can techncially be any Linux computer, but the
 Gizmo team peforms detailed testing and releases software images that
-target the Raspberry Pi 400, which is a convenient self contained
-computer with a dual monitor capability.
+target the Raspberry Pi 400/500 series, which is a convenient self
+contained computer with a dual monitor capability.
 
 ### Scoring Box
 

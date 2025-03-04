@@ -16,7 +16,7 @@ visualized with the diagram below:
 ```d2
 direction: right
 Operator -> Controller : Human controls Gamepad
-Controller -> Gizmo : MQTT Control Stream
+Controller -> Gizmo : UDP Control Stream
 Gizmo -> Peripherals : Gizmo Controls Peripherals
 ```
 
@@ -80,75 +80,120 @@ when the last time the User Processor asked for data was.
 The command line `gizmo` tool is a "multi-call binary" meaning that it
 can do different things depending on the options you start it up with.
 You can think of it as a bunch of different programs all contained in
-the same file which makes it easier to distribute.
+the same file which makes it easier to distribute.  The same exact
+`gizmo` tool is what runs on the Driver's Stations and the FMS.  While
+we make every effort to make compatible updates, in general you'll
+want to run the same version of the Gizmo utilities everywhere.  We
+note explicitly when backwards compatibility cannot be maintained, so
+check the patch notes.
 
-The diagram below shows the most important parts of the Gizmo as they
-are arrayed out for the operation of a field.  When operating in
-practice mode, the same components are in play, but are all
-initialized with default values that remove the need to configure
-everything.
+### Direct Connect
 
-This diagram shows the components in play when running `gizmo field
-serve` which provides field control services.
+Speaking in terms of time connected, most Gizmos will spend most of
+their time in what is called "Direct Connect" mode, which forms a
+direct point-to-point link between the Driver's Station and the Gizmo
+System Processor.  This looks like this visually:
 
 ```d2
 
-tlm : Team Location Mapper {
-    tooltip: Provides mapping of team to field location
+ds : Driver's Station {
+  gamepad : Gamepad
+  sw : Gizmo Software
+
+  net : DS Network {
+    enet : Ethernet
+    radio : Integrated Radio
+  }
+
+  gamepad -> sw : USB
+  sw -> net.radio : Host Network Stack
 }
 
-mqttserver : MQTT Server {
-    tooltip: High performance message broker
+gizmo : Gizmo {
+  system : System Processor
+  user : User Processor
+
+  system -> user : I2C
 }
 
-mqttpusher: MQTT Pusher {
-    tooltip: Relay between gamepads and MQTT
-}
-
-gamepad : Gamepad Driver {
-    tooltip: Provides an abstraction over different joystick APIs
-}
-
-http : HTTP Server {
-    tooltip: Provides an administrative interface
-}
-
-metrics : Prometheus Metrics Registry {
-    tooltip: Ingests and collates statistics
-}
-
-http -> metrics: Fronts metrics registry
-http -> tlm : Updates mappings
-
-tlm -> mqttserver : Pushes location information
-mqttpusher -> mqttserver : Pushes control information
-mqttpusher <- mqttserver : Queries location information
-mqttpusher -> gamepad: Polls gamepad state
+ds.net.radio -> gizmo.system : Point to Point Link
 ```
 
-The primary adminstrative interface for the `gizmo fms run` is an HTTP
-API that consumes JSON formatted data.  This API can update the data
-stored in the Team Location Mapper which maintains a mapping of team
-number to field location.  This mapping is published via routine MQTT
-messages as well as made available via the HTTP API (read-only).
+The control is passed from the gamepad to the Driver's Station via
+USB, then via wireless link to the Gizmo System Processor, then via
+I2C to the user processor where these values are consumed by user
+programs to control a robot.
 
-MQTT is a publish/subscribe bus mechanism that allows various
-consumers to express interest in topics of information such as
-location for a particular team or the entire system, and for
-publishers to simultaneously notify all consumers of new information.
-MQTT is a network-transparent system which means that each of the
-components described above can even be run on different computers.
+### Field Radio
 
-Gizmo boards connect to the `gizmo fms run` process using MQTT.  All
-messages that get passed over MQTT are JSON formatted.
+During a competition, it is imperative that a solid link be maintained
+between the Gizmo and the Driver's Station.  The weak part of this
+chain is the wireless conection, so to ensure a solid connection, we
+replace the Driver Station's internal radio with a substantially more
+powerful external radio wth external antennas.  This also ensures that
+each team is equally affected by any interference, since the central
+radio talks to all robots on a given field.  One field radio per field
+is required.
 
-The gamepad components abstract over the various differences in
-operating system APIs between macOS, Microsoft Windows, and the Linux
-kernel.  This allows the `gizmo` tool to be cross platform and read
-the gamepad API in a neutral way on a selection of platforms.
+The FMS does not process or interact with the control data, it only
+provides a different means of transfering this control stream from the
+DS to the Gizmo.  Visually, this is the path:
 
-Gizmo boards pass statistics information back to the server via MQTT
-which is ingested by the metrics module and made available over HTTP
-as an OpenMetrics compatible metrics stream.  Example Prometheus and
-Grafana configurations are available in the [Gizmo
+```d2
+
+ds : Driver's Station {
+  net : DS Network {
+    enet : Ethernet
+    radio : Integrated Radio
+  }
+}
+
+fms : Field Management System {
+  field : Field Box {
+    style.multiple: true
+  }
+  score : Scoring Box
+  pi : FMS Workstation
+
+  score <-> field : Ethernet
+  score <-> pi : Ethernet
+}
+
+gizmo : Gizmo {
+  system : System Processor
+  user : User Processor
+
+  system -> user : I2C
+}
+
+ds.net.enet -> fms.field : Ethernet
+fms.field -> gizmo.system : Wireless
+```
+
+The FMS maintains an isolated data-path for each Gizmo/DS pair, and
+ensures that no robot can interfere with another's control stream.
+This is why the FMS needs to know where each team is located, so that
+it can provision the correct access onto the specific Field Box port
+going to that team.
+
+## Observability
+
+
+Gizmo boards pass statistics information back to the driver's station,
+which in turn shares them with the FMS.  The Gizmo board also reports
+some metadata information related to things that can prevent the
+system from working directly to both the Driver's Station and the FMS.
+
+You can use this information to get a better understanding of what's
+going on with your field and Gizmos.  Here are some example questions
+you can answer using this data:
+
+  * Are all Gizmos connected?
+  * Is there persistent interference?
+  * Did any team experience a disconnect?
+  * What is the battery voltage on all connected Gizmos?
+
+This information is ingested by the metrics module and made available
+over HTTP as an OpenMetrics compatible metrics stream.  Example
+Prometheus and Grafana configurations are available in the [Gizmo
 repository](https://github.com/gizmo-platform/gizmo).
