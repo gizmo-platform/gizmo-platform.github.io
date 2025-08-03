@@ -22,7 +22,7 @@ it to finish initialization.  Do not connect any Field Boxes yet.
 Begin the bootstrap procedure with the following command:
 
 ```
-$ gizmo fms net bootstrap
+$ sudo -u _gizmo gizmo fms net bootstrap
 ```
 
 You will be presented with a message summarizing most of the above
@@ -93,7 +93,7 @@ handful of items that are set to different values during
 bootstrapping:
 
 ```
-$ gizmo fms net reconcile
+$ sudo -u _gizmo gizmo fms net reconcile
 ```
 
 The command will run for approximately 2 minutes and validate your

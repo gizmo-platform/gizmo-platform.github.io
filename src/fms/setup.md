@@ -42,7 +42,7 @@ For a complete walkthrough of what Balena Etcher looks like, review
 the image writing process from the appendix ([this
 page](/appendix/imaging.md)).
 
-## Initial Setup Tasks
+## First Boot
 
 The first time you boot up your FMS Worstation it will perform a
 number of initial setup tasks.  This process may take some time while
@@ -64,76 +64,12 @@ desktop that looks like this:
 > to exist and you to be logged in as it, and these assertions are
 > enforced.
 
-Upon logging in you must connect the FMS workstation to wifi in order
-to download some utilities and files that are not distributable.
-
-Connect to wifi by right clicking anywhere on the blank space of the
-desktop, or use the menu in the lower left hand corner, and select
-"iwgtk" from the network menu:
-
-> Settings > HardwareSettings > iwgtk
-
-Select your wifi network and click connect, entering the password if
-your network requires one.
-
-Right click anywhere on the blank space of the desktop, or use the
-menu in the lower left hand corner, and select the XFCE4 terminal
-from:
-
-> System > TerminalEmulator > Xfce Terminal
-
-> [!NOTE]
+> [!SUCCESS] Checkpoint!
 >
-> You are also strongly encouraged to change the FMS password with the
-> following command:
->
-> ```
-> $ passwd
-> ```
->
-> This will prompt you for your current, new, and confirmation of new
-> passowrds.  The default password is `gizmo`.
+> You have now completed workstation setup.  Proceed through one of
+> the available setup workflows to continue.
 
-
-With the terminal open, execute the following commands:
-
-```
-$ sudo tzupdate
-$ sudo gizmo fms setup fetch-tools
-$ sudo gizmo fms setup fetch-packages
-```
-
-The first command will set the timezone based on your location, the
-second two retrieve 3rd party firmware that is required for the FMS,
-but that we are not permitted to bundle with the system images.
-
-## Updating the Gizmo Binary
-
-> [!NOTE]
->
-> You only need to update when a new version is released.  If you just
-> installed, you're already on the latest version.
-
-From time to time the Gizmo application receives updates.  To update
-the binary on the FMS workstation, download the
-`gizmo_Linux_arm64.tar.gz` file from the most recent [GitHub
-Releases](https://github.com/gizmo-platform/gizmo/releases) page.
-Expand the archive and copy the Gizmo application into place, then
-reboot:
-
-```
-$ cd Downloads/
-$ tar -zvxf gizmo*.tar.gz
-$ sudo mv ./gizmo /usr/local/bin/gizmo
-$ sudo reboot
-```
-
-The operating system can be updated in a similar way:
-
-```
-$ sudo xbps-install -Su
-$ sudo reboot
-```
-
-The update command will tell you how much space is required and how
-much data will need to be downloaded from the internet.
+You are now ready to proceed with setup.  We recommend and support
+using the [Graphical Setup Experience](./graphical/index.md), but you
+are free to disregard this advice if you have a compelling reason to
+use one of the unsupported setup workflows.

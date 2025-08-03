@@ -14,11 +14,11 @@ The `gizmo` tool provides a command for rapidly binding multiple
 Gizmos to the FMS.  For this reason, it is recommended that you
 perform binding from the FMS workstation.
 
-Launch the tool by running `gizmo fms config-server` which will
-initialize and then wait for a Gizmo to request configuration.
-Connect a USB cable from the FMS workstation to the System Processor
-on the Gizmo to be bound, then press and hold the BOOTSEL button for 2
-seconds.
+Launch the tool by running `sudo -u _gizmo -g dialout gizmo fms
+config-server` which will initialize and then wait for a Gizmo to
+request configuration.  Connect a USB cable from the FMS workstation
+to the System Processor on the Gizmo to be bound, then press and hold
+the BOOTSEL button for 2 seconds.
 
 
 You will see output similar to the following:

@@ -23,7 +23,7 @@ Box.  Once you have done this, launch the `flash-device` utility.  You
 will see the following message:
 
 ```
-$ gizmo fms setup flash-device
+$ sudo -u _gizmo gizmo fms setup flash-device
 Welcome to the Device Flash utility.
 
 This process will guide you through the process of installing the most
@@ -56,29 +56,22 @@ restart.
 The installation process will look similar to this:
 
 ```
-2024-05-08T13:39:44.624-0500 [INFO]  flash-device: Writing configuration to file: path=/tmp/2069178931.rsc
-2024-05-08T13:39:44.681-0500 [INFO]  flash-device: Version: 7.14.2(2024-03-27 08:33:46)
-2024-05-08T13:40:05.432-0500 [INFO]  flash-device: client: 78:9A:18:C7:F8:16
-2024-05-08T13:40:05.623-0500 [INFO]  flash-device: client: 78:9A:18:C7:F8:16
-2024-05-08T13:40:05.823-0500 [INFO]  flash-device: client: 78:9A:18:C7:F8:16
-2024-05-08T13:40:06.023-0500 [INFO]  flash-device: client: 78:9A:18:C7:F8:16
-2024-05-08T13:40:06.223-0500 [INFO]  flash-device: client: 78:9A:18:C7:F8:16
-2024-05-08T13:40:06.423-0500 [INFO]  flash-device: client: 78:9A:18:C7:F8:16
-2024-05-08T13:40:06.432-0500 [INFO]  flash-device: Sending and starting Netinstall boot image ...
-2024-05-08T13:40:14.033-0500 [INFO]  flash-device: Installed branding package detected
-2024-05-08T13:41:36.511-0500 [INFO]  flash-device: Will reset to default config
-2024-05-08T13:41:36.511-0500 [INFO]  flash-device: Interface Mask: 255.255.255.0
-2024-05-08T13:41:36.511-0500 [INFO]  flash-device: Using Client IP: 192.168.88.1
-2024-05-08T13:41:36.511-0500 [INFO]  flash-device: Using Server IP: 192.168.88.2
-2024-05-08T13:41:36.511-0500 [INFO]  flash-device: Starting PXE server
-2024-05-08T13:41:36.511-0500 [INFO]  flash-device: Waiting for RouterBOARD...
-2024-05-08T13:41:36.511-0500 [INFO]  flash-device: Discovered RouterBOARD...
-2024-05-08T13:41:36.512-0500 [INFO]  flash-device: Formatting...
-2024-05-08T13:41:36.512-0500 [INFO]  flash-device: Sending package routeros-7.14.2-mipsbe.npk ...
-2024-05-08T13:41:36.512-0500 [INFO]  flash-device: Sending autorun script 2069178931.rsc ...
-2024-05-08T13:41:36.512-0500 [INFO]  flash-device: Ready for reboot...
-2024-05-08T13:41:36.512-0500 [INFO]  flash-device: Sent reboot command
-2024-05-08T13:41:36.516-0500 [INFO]  flash-device: Flashing complete, you may now disconnect cables.
+2025-08-03T16:25:37.549-0500 [INFO]  flash-device: Writing configuration to file: path=/tmp/3206896280.rsc
+2025-08-03T16:25:37.567-0500 [INFO]  flash-device: Version: 7.17(2025-01-16 09:26:27)
+2025-08-03T16:25:37.570-0500 [INFO]  flash-device: Will reset to default config
+2025-08-03T16:25:37.570-0500 [INFO]  flash-device: Will install devices only once
+2025-08-03T16:25:37.584-0500 [INFO]  flash-device: Using interface eth0
+2025-08-03T16:25:37.584-0500 [INFO]  flash-device: Using interface eth0
+2025-08-03T16:25:37.584-0500 [INFO]  flash-device: Waiting for Link-UP on eth0
+2025-08-03T16:26:18.591-0500 [INFO]  flash-device: Waiting for RouterBOARD...
+2025-08-03T16:26:18.740-0500 [INFO]  flash-device: Assigned 192.168.88.1 to 78:9A:18:D3:24:C4
+2025-08-03T16:26:20.385-0500 [INFO]  flash-device: Booting device 78:9A:18:D3:24:C4 into setup mode
+2025-08-03T16:27:05.789-0500 [INFO]  flash-device: Formatting device 78:9A:18:D3:24:C4
+2025-08-03T16:27:31.788-0500 [INFO]  flash-device: Sending packages to device 78:9A:18:D3:24:C4
+2025-08-03T16:27:35.844-0500 [INFO]  flash-device: Packages and configuration script sent to device 78:9A:18:D3:24:C4
+2025-08-03T16:27:35.899-0500 [INFO]  flash-device: Rebooting device 78:9A:18:D3:24:C4
+2025-08-03T16:27:35.899-0500 [INFO]  flash-device: Successfully finished installing the device with MAC address 78:9A:
+2025-08-03T16:27:35.900-0500 [INFO]  flash-device: Flashing complete, you may now disconnect cables.
 ```
 
 To install the software on Field Boxes, repeat the process as

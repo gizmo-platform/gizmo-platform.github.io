@@ -16,10 +16,17 @@ construct a record for each team.  To perform initial configuration,
 run the configuration wizard by invoking:
 
 ```
-$ gizmo fms setup wizard
+$ sudo -u _gizmo gizmo fms setup wizard
 ```
 
 You will be asked a series of questions.
+
+### `? Overwrite existing config?`
+
+The FMS ships with a blank "dummy" configuration file which is
+required to allow the web interface to start.  Configuring using the
+console will overwrite this file, and you must confirm this overwrite
+to proceed.
 
 ### `? Specify teams CSV file`
 
@@ -113,3 +120,16 @@ running the wizard from the FMS Workstation.  Do not change this value
 unless you are using another machine to perform this configuration and
 will subsequently transfer files to the Workstation (very advanced use
 case).
+
+### `? Select Integrations`
+
+The FMS can integrate with other 3rd party software.  Use the arrow
+keys to navigate the checkboxes and space to mark or clear each box.
+Press enter to accept your selection.  You can change this later.
+Integrations are discussed in detail in the [Integrations
+Section](../integrations/).
+
+### `? Configure really advanced network features?`
+
+Answer no to this question unless you have received specific
+instructions otherwise.
