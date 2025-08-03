@@ -5,6 +5,11 @@ multilingual = false
 src = "src"
 title = "Gizmo Guide"
 
+[output.html]
+
+[output.pdf]
+optional = true
+
 [preprocessor.callouts]
 
 [preprocessor.d2-go]
