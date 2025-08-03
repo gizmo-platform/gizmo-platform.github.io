@@ -23,17 +23,17 @@ Writing software images with Balena Etcher looks like this:
 
 When you open the main application screen, it will look like this:
 
-![Balena Etcher First Open](/img/balena_opened.png)
+![Balena Etcher First Open](../img/balena_opened.png)
 
 Either download and extract the required image file, or paste the URL
 directly into the box on the "Use Image URL" screen:
 
-![Balena Etcher Use URL](/img/balena_urlconf.png)
+![Balena Etcher Use URL](../img/balena_urlconf.png)
 
 Click the "Select target" button and connect your micro SD card.  The
 disk will appear as a target that you can use.
 
-![Balena Etcher Target Selection](/img/balena_target.png)
+![Balena Etcher Target Selection](../img/balena_target.png)
 
 > [!WARNING]
 >
@@ -48,7 +48,7 @@ disk will appear as a target that you can use.
 
 Once configured, the Etcher window will look similar to this:
 
-![Balena Etcher Ready to Go](/img/balena_ready.png)
+![Balena Etcher Ready to Go](../img/balena_ready.png)
 
 The flashing process will take several minutes.  On average with a
 modern computer, the Gizmo team observes this process taking about 3
@@ -63,6 +63,6 @@ minutes.
 
 Once complete, the Etcher window will look like this:
 
-![Balena Etcher Finished](/img/balena_finished.png)
+![Balena Etcher Finished](../img/balena_finished.png)
 
 You may now close Etcher and remove the micro SD card.

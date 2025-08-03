@@ -35,7 +35,7 @@ that change colors.  These indicate from top to bottom:
 Here's a handy graphic that helps explain what the different
 combinations mean:
 
-![Gizmo Lights](/img/gizmo-lights.png)
+![Gizmo Lights](../img/gizmo-lights.png)
 
 ## Serial Event Log
 

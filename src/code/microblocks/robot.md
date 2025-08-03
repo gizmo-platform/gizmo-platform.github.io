@@ -7,7 +7,7 @@ control each motor with one of the gamepad's joysticks. The left motor
 should be attached to motor port 1. The right motor should be attached to
 motor port 3.
 
-![Full basic robot program](/img/microblocks/basic_robot_program.png)
+![Full basic robot program](../../img/microblocks/basic_robot_program.png)
 
 > [!NOTE]
 > To run this program, you will need the Gizmo to be connected to your

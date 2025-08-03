@@ -9,22 +9,21 @@ editor and CircUp library management tools.
 In order for your microcontroller to be able to use Circuit Python, you
 have to install board-specific firmware.
 
-1. Download the Circuit Python v9.0 runtime (.uf2 file) for the Raspberry Pi
-Pico from
-<https://circuitpython.org/board/raspberry_pi_pico/>.
+Download the Circuit Python v9.0 runtime (.uf2 file) for the Raspberry
+Pi Pico from <https://circuitpython.org/board/raspberry_pi_pico/>.
 
-   > [!NOTE]
-   > 
-   > Only versions within 9.0.X (ie. 9.0.4) have been tested with the
-   > Gizmo. Newer or older versions may not work.
+> [!NOTE]
+>
+> Only versions within 9.0.X (ie. 9.0.4) have been tested with the
+> Gizmo. Newer or older versions may not work.
 
-1. Hold your Gizmo's student processor BOOTSEL ("Boot Select") button down
-while connecting the USB programming cable to your computer. Once you've
-connected the cable, release the BOOTSEL button.
+Hold your Gizmo's student processor BOOTSEL ("Boot Select") button
+down while connecting the USB programming cable to your computer. Once
+you've connected the cable, release the BOOTSEL button.
 
    You should now see an external drive on your computer called "RPI-RP2".
 
-1. Copy the .uf2 file you downloaded to the "RPI-RP2" drive.
+Copy the .uf2 file you downloaded to the "RPI-RP2" drive.
 
    Your device will automatically reboot and reconnect as a new drive
    called "CIRCUITPY".
@@ -35,7 +34,7 @@ connected the cable, release the BOOTSEL button.
 > Gizmo will be erased.
 
 > [!TIP]
-> 
+>
 > If your Gizmo ever gets stuck in a way that prevents you from saving new
 > Circuit Python code to it or if it stops showing up as the CIRCUITPY
 > drive when you connect it, you may need to re-install the runtime by

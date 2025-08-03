@@ -20,13 +20,13 @@ the user you are changing the password for has an adminstrative role.
 
 Upon changing the password, you'll be greeted with a landing page:
 
-![Grafana Home](/img/grafana_landing.png)
+![Grafana Home](../img/grafana_landing.png)
 
 Click on the "Robot Status" item in the right column to access the
 robot status dashboard.  The dashboard will look similar to this
 example:
 
-![Grafana Robot Status](/img/grafana_robostatus.png)
+![Grafana Robot Status](../img/grafana_robostatus.png)
 
 The dashboard provides information on a single robot at a time.  The
 top row shows the status of the various power systems on the robot,

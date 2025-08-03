@@ -54,7 +54,7 @@ popular for remote control cars and planes. The red and black wires
 provide power to the servo / motor and the white wire carries a PWM signal
 to control the servo / motor. 
 
-![servo connector](/img/servo_connector.png)
+![servo connector](../../img/servo_connector.png)
 
 Servos control their position based on the signal they receive. We can
 control servos using the `Servo` class in `adafruit_motor.servo`. It has a

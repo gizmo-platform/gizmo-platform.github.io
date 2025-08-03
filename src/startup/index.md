@@ -12,7 +12,7 @@ Lets start out with a deeper look at the Gizmo itself.  Here's a
 picture of what the circuit board looks like with everything
 installed:
 
-![3D render of the Gizmo PCB](/img/gizmo-overview.png)
+![3D render of the Gizmo PCB](../img/gizmo-overview.png)
 
 In the center of the board you can see the two Raspberry Pi Pico
 modules while run the system code and user code (your code).  These

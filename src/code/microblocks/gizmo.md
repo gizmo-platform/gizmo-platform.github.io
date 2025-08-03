@@ -21,7 +21,7 @@ You can test the say block by adding a When Started hat block and then
 snapping a Say block under it with a message of your choice. When you run
 your program, a bubble with your message should appear above the stack.
 
-![minimal Say block example](/img/microblocks/say_example.png)
+![minimal Say block example](../../img/microblocks/say_example.png)
 
 ## Reporter Blocks
 
@@ -39,7 +39,7 @@ and drag an addition block into the Say block's message. Add whatever
 numbers you want into the addition block and run the program. The stack's
 output will show the result of the addition.
 
-![Say block with addition block](/img/microblocks/say_addition_example.png)
+![Say block with addition block](../../img/microblocks/say_addition_example.png)
 
 ## The Gizmo Block Library
 
@@ -70,7 +70,7 @@ Gizmo library into the Say block's message. The Gamepad Button block
 has a dropdown where you can choose which button it will check. Change
 that dropdown so our program is reading the A button.
 
-![Full example program](/img/microblocks/say_gamepad_example.png)
+![Full example program](../../img/microblocks/say_gamepad_example.png)
 
 If you run this program, an output bubble will pop up that says "true"
 when the button is pressed and "false" when it is not.

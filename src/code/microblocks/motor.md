@@ -18,18 +18,18 @@ input for the position or speed.
 
 The motor block accepts speeds from -100 to 100.
 
-![Set Motor To Speed block](/img/microblocks/motor_block.png)
+![Set Motor To Speed block](../../img/microblocks/motor_block.png)
 
 The servo block accepts positions from -90 to 90.
 
-![Set Servo To Position block](/img/microblocks/servo_block.png)
+![Set Servo To Position block](../../img/microblocks/servo_block.png)
 
 ## Sweeping Motor Speeds
 
 This example program runs a motor on Gizmo's motor port 1 through the full
 range of its speeds.
 
-![Motor speed sweep program](/img/microblocks/motor_sweep_example.png)
+![Motor speed sweep program](../../img/microblocks/motor_sweep_example.png)
 
 This program begins with a When Started hat block that will run the stack
 when the program starts running. Underneath that, we have a Forever loop
@@ -64,7 +64,7 @@ optional input controls the step size of the loop. For example, if we
 wanted to count even numbers from 2 to 10, we would want to add 2 to the
 loop variable for each loop.
 
-![even number for loop](/img/microblocks/for_loop_even_numbers.png)
+![even number for loop](../../img/microblocks/for_loop_even_numbers.png)
 
 In each For loop, we have a Set Motor To Speed block and a Wait
 Milliseconds block. The motor block will set our motor speed to the value

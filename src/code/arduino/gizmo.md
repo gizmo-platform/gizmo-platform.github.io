@@ -61,7 +61,7 @@ The Gizmo has a number of I/O interfaces for your use.  These are
 divided up into names based on functions.  The names correspond to the
 names on the diagram below:
 
-![Gizmo overview](/img/gizmo-overview.png)
+![Gizmo overview](../../img/gizmo-overview.png)
 
 For motors, there are port names `GIZMO_MOTOR_N` where `N` is a number
 ranging from 1-8.  On newer boards with dedicated servo ports, `N`
