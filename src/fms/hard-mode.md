@@ -96,40 +96,46 @@ You'll need to connect to the internet for this, and its recommended
 to do so using wired Ethernet.  You'll need to install some files and
 run scripts that expect to have access to the internet.
 
-> [!TIP]
->
-> Throughout this section you'll see the term "binary" used to refer
-> to the Gizmo software.  This is a common shorthand used by
-> programmers to refer to the compiled form of a program.  Humans
-> work with ASCII text whereas computers deal with binary information,
-> and so when we want to interact with the computer, we do so using
-> compiled programs containing machine code.  Machine code is a long
-> sequence of 1s and 0s, referred to as a binary file.  Since "binary
-> file" becomes cumbersome, its common to refer to these artifacts as
-> binaries.
-
-Head over to the [GitHub
-Releases](https://github.com/gizmo-platform/gizmo/releases) page.
-Locate the most recent released version that is not a pre-release and
-obtain the correct file for the architecture you've installed.  Since
-the machine used in this demo is an Intel NUC, the correct file will
-be `gizmo_Linux_x86_64.tar.gz`.  You can download it directly using
-`xbps-uhelper fetch`:
+The Gizmo tool is included in the XBPS package collection, so we can
+simply install it using the system package manager:
 
 ```
-$ xbps-uhelper fetch https://github.com/gizmo-platform/gizmo/releases/download/v0.1.0/gizmo_Linux_x86_64.tar.gz
+$ sudo xbps-install gizmo gizmo-fms
+Name      Action    Version           New version            Download size
+gizmo     install   -                 0.1.9_1                -
+gizmo-fms install   -                 0.1.9_1                -
+
+Size required on disk:          16MB
+Space available on disk:       236GB
+
+Do you want to continue? [Y/n]
+
+[*] Verifying package integrity
+gizmo-0.1.9_1: verifying SHA256 hash...
+gizmo-fms-0.1.9_1: verifying SHA256 hash...
+
+[*] Collecting package files
+gizmo-0.1.9_1: collecting files...
+gizmo-fms-0.1.9_1: collecting files...
+
+[*] Unpacking packages
+gizmo-0.1.9_1: unpacking ...
+gizmo-fms-0.1.9_1: unpacking ...
+
+[*] Configuring unpacked packages
+gizmo-0.1.9_1: configuring ...
+gizmo-0.1.9_1: installed successfully.
+gizmo-fms-0.1.9_1: configuring ...
+Created _gizmo system group.
+Created _gizmo system user.
+gizmo-fms-0.1.9_1: installed successfully.
+
+0 downloaded, 2 installed, 0 updated, 2 configured, 0 removed, 0 on hold.
 ```
 
-Expand the archive and copy the `gizmo` binary into `/usr/local/bin/`:
-
-```
-$ tar -xvzf gizmo_Linux_x86_64.tar.gz
-LICENSE
-README.md
-gizmo
-$ sudo mv -v gizmo /usr/local/bin/
-renamed 'gizmo' -> '/usr/local/bin/gizmo'
-```
+The `gizmo` package contains the actual tools, and the `gizmo-fms`
+package contains some system configuration data that allows the FMS to
+run as a background process.
 
 Now we can let the `gizmo` tool install a bunch of packages and expand
 some files onto the disk.  This may seem like cheating, but there's
@@ -152,6 +158,12 @@ of the `admin` user is correct.  We'll do that with the following
 
 ```
 $ sudo usermod -c "FMS Admin" -G wheel,storage,dialout,docker admin
+```
+
+Finally, set the default web admin password for the FMS:
+
+```
+$ sudo htpasswd -cb /var/lib/gizmo/.htpasswd admin gizmo
 ```
 
 > [!SUCCESS] Checkpoint!
@@ -216,9 +228,8 @@ Download the CLI from Mikrotik's website and copy the file to
 `/usr/local/bin/`:
 
 ```
-$ xbps-uhelper fetch https://download.mikrotik.com/routeros/7.15.3/netinstall-7.15.3.tar.gz
-$ tar -xvzf netinstall-7.15.3.tar.gz
-$ sudo mv netinstall-cli /usr/local/bin/
+$ xbps-uhelper fetch https://download.mikrotik.com/routeros/7.19.4/netinstall-7.19.4.tar.gz
+$ tar -xvzf netinstall-*.tar.gz
 ```
 
 We want to be able to use the `netinstall-cli` as the `admin` user
@@ -227,7 +238,7 @@ know what the specific permissions are that the `netinstall-cli` needs
 we can assign those statically to the file:
 
 ```
-$ sudo setcap cap_net_bind_service+ep /usr/local/bin/netinstall-cli
+$ sudo setcap cap_net_bind_service+ep ./netinstall-cli
 ```
 
 > [!WARNING]
@@ -249,10 +260,30 @@ firmware packages from Mikrotik's website and store them in the
 expected locations:
 
 ```
-$ sudo mkdir -p /usr/share/routeros/
-$ cd /usr/share/routeros/
-$ sudo xbps-uhelper fetch https://cdn.mikrotik.com/routeros/7.15.3/routeros-7.15.3-mipsbe.npk
-$ sudo xbps-uhelper fetch https://cdn.mikrotik.com/routeros/7.15.3/wireless-7.15.3-mipsbe.npk
+$ sudo mkdir -p routeros
+$ cd routeros
+```
+
+Then fetch the device firmware for the hardware you have, selecting
+between the large and small scoring boxes, and downloading the field
+box firmware.
+
+Scoring Box (Small):
+```
+$ xbps-uhelper fetch https://cdn.mikrotik.com/routeros/7.17/routeros-7.17-mipsbe.npk
+$ xbps-uhelper fetch https://cdn.mikrotik.com/routeros/7.17/wireless-7.17-mipsbe.npk
+```
+
+Scoring Box (Large):
+```
+$ xbps-uhelper fetch https://cdn.mikrotik.com/routeros/7.17/routeros-7.17-arm64.npk
+$ xbps-uhelper fetch https://cdn.mikrotik.com/routeros/7.17/wireless-7.17-arm64.npk
+```
+
+Field Box
+```
+$ xbps-uhelper fetch https://cdn.mikrotik.com/routeros/7.17/routeros-7.17-arm.npk
+$ xbps-uhelper fetch https://cdn.mikrotik.com/routeros/7.17/wireless-7.17-arm.npk
 ```
 
 Note the versions and that one of the files is `routeros` and one is
@@ -265,9 +296,9 @@ drivers and programs to operate the radios on the hAP devices.
 > At this point, we've run the equivalent of `gizmo fms setup
 > fetch-tools` and `gizmo fms setup fetch-packages`.
 
-At this point you'll need to actually configure the FMS.  This is no
-different than the normal install and involves running `gizmo fms setup
-wizard`.  You can get more information in [this page](config.md).
+Its time to configure the FMS.  This is no different than the normal
+install and involves running `gizmo fms setup wizard`.  You can get
+more information in [this page](./console/config.md).
 
 We're now ready to use `netinstall-cli` to install the software on the
 devices.  The `gizmo` tool provides significant automation to setup
@@ -289,8 +320,8 @@ Next, run the flash command to get the `rsc` files that contain the
 bootstrap configuration.
 
 ```
-$ gizmo fms setup flash-device --template-to scoring.rsc
-$ gizmo fms setup flash-device --template-to field.rsc
+sudo -u _gizmo gizmo fms setup flash-device --template-to /tmp/scoring.rsc
+sudo -u _gizmo gizmo fms setup flash-device --template-to /tmp/field.rsc
 ```
 
 Make sure you select the right option when making each file!
@@ -301,29 +332,32 @@ various Mikrotik devices.  Using `iproute2` the FMS workstation can
 have `192.168.88.2/24`, then we start the netinstall process for the
 scoring box:
 
+Small:
+
 ```
-$ sudo ip address add 192.168.88.2/24 dev eth0
-$ sudo netinstall-cli -s scoring.rsc -r -a 192.168.88.1 /usr/share/routeros/routeros*.npk
+$ sudo ./netinstall-cli -s /tmp/scoring.rsc -r -a 192.168.88.1 routeros/*mipsbe.npk
+```
+
+Large:
+
+```
+$ sudo ./netinstall-cli -s /tmp/scoring.rsc -r -a 192.168.88.1 routeros/*arm64.npk
 ```
 
 This will wait for the RouterOS device to attempt to netboot.  Plug
 into port 1 and hold down the reset button while connecting the power.
 This causes RouterOS to boot from the fail-safe boot-loader, and then
 wait for the user LED to be solid, then be blinking, then turn off.
-Once the user LED turns off the device will netboot.
+Once the user LED turns off the device will netboot.  Once the
+installation has finished ("Successfully Installed" appears on the
+console), you may exit the installer by pressing Control+c.
 
 Install the software on the field boxes one at a time using a similar
 command, but this time including the `wireless` package:
 
 ```
-$ sudo netinstall-cli -s field.rsc -r -a 192.168.88.1 /usr/share/routeros/*.npk
+$ sudo ./netinstall-cli -s /tmp/field.rsc -r -a 192.168.88.1 routeros/*arm.npk
 ```
-
-> [!NOTE]
->
-> The glob expression here will actually install _all_ RouterOS
-> packages, but the only 2 in the directory are the 2 that were
-> downloaded earlier.
 
 Once you've installed all of your field boxes, make sure to remove the
 provisioning address from `eth0`.  It won't technically break
@@ -368,41 +402,50 @@ $ sudo ip address add 100.64.1.2/24 dev bootstrap0
 $ sudo ip link set bootstrap0 up
 ```
 
+> [!DANGER] Pitfall
+>
+> All of the following command that are involved in bootstrapping the
+> network need to be run as the `_gizmo` user which owns all of the
+> system directories related to the Gizmo FMS.  Pay careful attention
+> and note that all of these commands are run with `sudo` to change
+> the active user the command runs as.
+
 Now extract the terraform source files to disk:
 
 ```
-$ gizmo fms net bootstrap --skip-apply
+$ sudo -u _gizmo gizmo fms net bootstrap --skip-apply
 ```
 
-This will put a terraform workspace at `~/.netstate` which is where
-we'll run the next several commands from.  At this point you can
-connect an Ethernet cable between the FMS workstation and port 2 on
-the scoring box, power it on, and wait for it to boot.
+This will put a terraform workspace at `/var/lib/gizmo/.netstate`
+which is where we'll run the next several commands from.  At this
+point you can connect an Ethernet cable between the FMS workstation
+and port 2 on the scoring box, power it on, and wait for it to boot.
 
 > [!NOTE]
 >
-> During normal operation `~/.netstate` still exists.  This special
-> directory holds all of the stateful data that is related to the FMS,
-> and is the directory that would have to be synchronized to a second
-> machine to make the FMS highly available.
+> During normal operation `/var/lib/gizmo/.netstate` still exists.
+> This special directory holds all of the stateful data that is
+> related to the FMS, and is the directory that would have to be
+> synchronized to a second machine to make the FMS highly available.
 
-After the hEX is booted, we're ready to apply configuration.  We could
-wait several minutes to see if it boots, or we could use the same
-check that the bootstrap command uses:
+After the scoring box is booted, we're ready to apply configuration.
+We could wait several minutes to see if it boots, or we could use the
+same check that the bootstrap command uses:
 
 ```
 $ sudo xbps-install -y curl
 $ export GIZMO_AUTO_PASS=$(gizmo fms net credential auto)
-$ curl -k --user "gizmo-fms:$GIZMO_AUTO_PASS" https://100.64.1.1/rest/system/identity
+$ curl -k --user "gizmo-fms:$GIZMO_AUTO_PASS" http://100.64.1.1/rest/system/identity
 ```
 
-Once that command returns the valid JSON and does not return a
+Once the last command returns the valid JSON and does not return a
 connection error, its time to proceed to configuring the terraform.
 Change directories to the netstate directory, then initialize
 terraform.
 
 ```
-$ cd ~/.netstate
+$ sudo -u _gizmo
+$ cd /var/lib/gizmo/.netstate
 $ terraform init
 ```
 
@@ -434,7 +477,7 @@ only has one field, we'll just connect one and then use the wait
 command from above to wait for it to boot:
 
 ```
-$ curl -k --user "gizmo-fms:$GIZMO_AUTO_PASS" https://100.64.0.10/rest/system/identity
+$ curl -k --user "gizmo-fms:$GIZMO_AUTO_PASS" http://100.64.0.10/rest/system/identity
 ```
 
 > [!NOTE]
@@ -458,12 +501,16 @@ terraform apply without a target filter to make sure everything is
 set:
 
 ```
-$ cd ~
 $ gizmo fms net reconcile --skip-apply
-$ cd ~/.netstate
 $ terraform init
 $ terraform apply
+$ exit
+$ sudo sv restart gizmo-fms
 ```
+
+The `exit` command is necessary to return out of the context that's
+signed in as the `_gizmo` user and return to that of the `admin` user
+who has authority to manipulate system services.
 
 > [!SUCCESS] Checkpoint!
 >
