@@ -52,6 +52,23 @@ the same place, but guarded by the case.  Depending on which version
 of the various case designs you have selected to use, you may need an
 unfolded paperclip to reach the button.
 
+### Using the Driver's Station
+
+Once you have located the button, press and hold it while plugging the
+USB cable into the driver's station.  The driver's station will detect
+the Gizmo in firmware-mode and copy the system firmware to it, then
+reboot it.  This process takes about 2 minutes.  For first time
+binding (fresh out of box system processor) the Gizmo will then
+automatically bind to your Driver's Station.
+
+> [!NOTE]
+>
+> This only works for 1.x Gizmos.  All commercially available Gizmos
+> are in the 1.x series, so this will only fail if you happen to have
+> a pre-release board.
+
+### Using a Laptop/Desktop
+
 Once you have located the button, press and hold it while plugging the
 other end of the USB cable into your computer.  Your computer will
 detect the Gizmo in mass-storage (thumb drive) mode, and it will be
