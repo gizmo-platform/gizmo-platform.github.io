@@ -34,10 +34,24 @@ Once physical assembly is complete, you must install the software
 image that runs the driver's station.  Ensure you have a means of
 writing a micro SD card for this step, using adapters if necessary.
 
+> [!TIP]
+>
+> For first time setup of a never-before-used micro SD card, you can
+> instead flash `ds-ramdisk.img.zip` using Balena Etcher as described
+> in [the appendix](../appendix/imaging.md) which will automatically
+> partition, format, and install the driver's station software to your
+> micro SD card.  All other updates can then be performed using the
+> zip file as described below.  Note that using Balena Etcher does
+> require one-time administrative access, and may not be suitable for
+> unprivileged student computers in schools.
+>
+> Once you have imaged the disk with etcher, be sure to change the
+> name to `GIZMO<NUMBER>` as described below.
+
 > [!NOTE]
 >
 > If this procedure doesn't appear to work for you, you may need to
-> [repartition your micro SD card](/appendix/full_partition.md).  This
+> [repartition your micro SD card](../appendix/full_partition.md).  This
 > can happen on some newer Windows 10 and Windows 11 machines where
 > inappropriate defaults are selected.
 >
